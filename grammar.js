@@ -1,80 +1,90 @@
 // Tree-sitter grammar for Minecap (.minecap)
 // Minimal grammar for highlighting and basic structure.
 
-module.exports = grammar({
-  name: 'minecap',
+const PREC = {
+  call: 3,
+  binary: 1,
+};
 
-  extras: $ => [/\s/, $.comment],
+module.exports = grammar({
+  name: "minecap",
+
+  extras: ($) => [/\s/, $.comment],
+
+  conflicts: ($) => [[$._expr, $.call]],
 
   rules: {
-    source_file: $ => repeat($._section_or_stmt),
+    source_file: ($) => repeat($._section_or_stmt),
 
-    _section_or_stmt: $ => choice(
-      $.section_header,
-      $.assignment,
-      $.expression_line,
-      $.comment
-    ),
+    _section_or_stmt: ($) =>
+      choice($.section_header, $.assignment, $.expression_line, $.comment),
 
-    section_header: $ => seq(
-      '[',
-      $.section_name,
-      ']'
-    ),
+    section_header: ($) => seq("[", $.section_name, "]"),
 
-    section_name: $ => /[A-Za-z0-9_.-]+/,
+    section_name: ($) => /[A-Za-z0-9_.-]+/,
 
-    assignment: $ => seq(
-      field('name', $.identifier),
-      '=',
-      field('value', $._expr)
-    ),
+    assignment: ($) =>
+      seq(field("name", $.identifier), "=", field("value", $._expr)),
 
-    expression_line: $ => $._expr,
+    expression_line: ($) => $._expr,
 
-    _expr: $ => choice(
-      $.number,
-      $.duration,
-      $.identifier,
-      $.string,
-      $.call,
-      $.tuple,
-      $.binary_expr
-    ),
+    _expr: ($) =>
+      choice(
+        $.binary_expr,
+        $.call,
+        $.tuple,
+        $.number,
+        $.duration,
+        $.string,
+        $.identifier,
+      ),
 
-    call: $ => seq(
-      field('func', $.identifier),
-      '(',
-      optional(sep1($._expr, ',')),
-      ')'
-    ),
+    call: ($) =>
+      prec(
+        PREC.call,
+        seq(
+          field("func", $.identifier),
+          "(",
+          optional(sep1($._expr, ",")),
+          ")",
+        ),
+      ),
 
-    tuple: $ => seq(
-      '(',
-      optional(sep1($._expr, ',')),
-      ')'
-    ),
+    tuple: ($) => seq("(", optional(sep1($._expr, ",")), ")"),
 
-    binary_expr: $ => prec.left(seq(
-      $._expr,
-      field('op', $.operator),
-      $._expr
-    )),
+    binary_expr: ($) =>
+      prec.left(PREC.binary, seq($._expr, field("op", $.operator), $._expr)),
 
-    operator: $ => choice(
-      '==', '!=', '<=', '>=', '<', '>', '+', '-', '*', '/', '%', '^', '->', 'AND', 'OR', 'NOT'
-    ),
+    operator: ($) =>
+      choice(
+        "==",
+        "!=",
+        "<=",
+        ">=",
+        "<",
+        ">",
+        "+",
+        "-",
+        "*",
+        "/",
+        "%",
+        "^",
+        "->",
+        "AND",
+        "OR",
+        "NOT",
+      ),
 
-    identifier: $ => /[A-Za-z_][A-Za-z0-9_\.\-]*/,
+    identifier: ($) => /[A-Za-z_][A-Za-z0-9_\.\-]*/,
 
-    number: $ => /[-+]?(?:\d+\.\d+|\d+)(?:[eE][-+]?\d+)?/,
+    number: ($) => /[-+]?(?:\d+\.\d+|\d+)(?:[eE][-+]?\d+)?/,
 
-    duration: $ => /[-+]?(?:\d+\.\d+|\d+)(?:ns|us|ms|s|m|h|d)/,
+    duration: ($) => /[-+]?(?:\d+\.\d+|\d+)(?:ns|us|ms|s|m|h|d)/,
 
-    string: $ => /"([^"\\]|\\.)*"/,
+    string: ($) => /"([^"\\]|\\.)*"/,
 
-    comment: $ => /#.*/
-  }
+    comment: ($) => /#.*/,
+  },
 });
 
 function sep1(rule, separator) {
