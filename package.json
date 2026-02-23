@@ -1,0 +1,10 @@
+{
+  "name": "tree-sitter-minecap",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tree-sitter grammar for Minecap",
+  "main": "grammar.js",
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.0"
+  }
+}
