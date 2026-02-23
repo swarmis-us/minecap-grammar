@@ -9,6 +9,10 @@
 (call func: (identifier) @function)
 (identifier) @variable
 
+; Derivative and magnitude
+(derivative_expr) @operator
+(magnitude_expr) @operator
+
 ; Literals
 (number) @number
 (duration) @number

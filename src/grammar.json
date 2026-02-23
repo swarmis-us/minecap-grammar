@@ -88,6 +88,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "derivative_expr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "magnitude_expr"
+        },
+        {
+          "type": "SYMBOL",
           "name": "call"
         },
         {
@@ -111,6 +119,44 @@
           "name": "identifier"
         }
       ]
+    },
+    "derivative_expr": {
+      "type": "PREC",
+      "value": 4,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_expr"
+          },
+          {
+            "type": "STRING",
+            "value": "'"
+          }
+        ]
+      }
+    },
+    "magnitude_expr": {
+      "type": "PREC",
+      "value": 3,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "|"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expr"
+          },
+          {
+            "type": "STRING",
+            "value": "|"
+          }
+        ]
+      }
     },
     "call": {
       "type": "PREC",

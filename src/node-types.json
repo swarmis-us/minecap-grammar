@@ -26,11 +26,19 @@
             "named": true
           },
           {
+            "type": "derivative_expr",
+            "named": true
+          },
+          {
             "type": "duration",
             "named": true
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "magnitude_expr",
             "named": true
           },
           {
@@ -77,11 +85,19 @@
           "named": true
         },
         {
+          "type": "derivative_expr",
+          "named": true
+        },
+        {
           "type": "duration",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "magnitude_expr",
           "named": true
         },
         {
@@ -127,11 +143,66 @@
           "named": true
         },
         {
+          "type": "derivative_expr",
+          "named": true
+        },
+        {
           "type": "duration",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "magnitude_expr",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "derivative_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "derivative_expr",
+          "named": true
+        },
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "magnitude_expr",
           "named": true
         },
         {
@@ -166,11 +237,66 @@
           "named": true
         },
         {
+          "type": "derivative_expr",
+          "named": true
+        },
+        {
           "type": "duration",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "magnitude_expr",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "magnitude_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "derivative_expr",
+          "named": true
+        },
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "magnitude_expr",
           "named": true
         },
         {
@@ -252,11 +378,19 @@
           "named": true
         },
         {
+          "type": "derivative_expr",
+          "named": true
+        },
+        {
           "type": "duration",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "magnitude_expr",
           "named": true
         },
         {
@@ -280,6 +414,10 @@
   },
   {
     "type": "%",
+    "named": false
+  },
+  {
+    "type": "'",
     "named": false
   },
   {
@@ -385,5 +523,9 @@
   {
     "type": "string",
     "named": true
+  },
+  {
+    "type": "|",
+    "named": false
   }
 ]
