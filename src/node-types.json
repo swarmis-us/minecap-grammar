@@ -22,6 +22,10 @@
             "named": true
           },
           {
+            "type": "boolean",
+            "named": true
+          },
+          {
             "type": "call",
             "named": true
           },
@@ -78,6 +82,10 @@
       "types": [
         {
           "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "boolean",
           "named": true
         },
         {
@@ -139,6 +147,10 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -183,6 +195,10 @@
       "types": [
         {
           "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "boolean",
           "named": true
         },
         {
@@ -233,6 +249,10 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -277,6 +297,10 @@
       "types": [
         {
           "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "boolean",
           "named": true
         },
         {
@@ -371,6 +395,10 @@
       "types": [
         {
           "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "boolean",
           "named": true
         },
         {
@@ -499,6 +527,10 @@
   {
     "type": "^",
     "named": false
+  },
+  {
+    "type": "boolean",
+    "named": true
   },
   {
     "type": "comment",

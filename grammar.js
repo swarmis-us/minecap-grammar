@@ -37,6 +37,7 @@ module.exports = grammar({
         $.magnitude_expr,
         $.call,
         $.tuple,
+        $.boolean,
         $.number,
         $.duration,
         $.string,
@@ -84,6 +85,8 @@ module.exports = grammar({
       ),
 
     identifier: ($) => /[A-Za-z_][A-Za-z0-9_\.\-]*/,
+
+    boolean: ($) => /true|false/,
 
     number: ($) => /[-+]?(?:\d+\.\d+|\d+)(?:[eE][-+]?\d+)?/,
 

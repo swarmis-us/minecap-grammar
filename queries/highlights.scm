@@ -22,6 +22,7 @@
 (number) @number
 (duration) @number
 (string) @string
+(boolean) @boolean
 
 ; Operators
 (operator) @operator

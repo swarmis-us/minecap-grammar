@@ -104,6 +104,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "boolean"
+        },
+        {
+          "type": "SYMBOL",
           "name": "number"
         },
         {
@@ -359,6 +363,10 @@
     "identifier": {
       "type": "PATTERN",
       "value": "[A-Za-z_][A-Za-z0-9_\\.\\-]*"
+    },
+    "boolean": {
+      "type": "PATTERN",
+      "value": "true|false"
     },
     "number": {
       "type": "PATTERN",
