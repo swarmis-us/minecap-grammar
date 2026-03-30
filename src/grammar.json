@@ -154,6 +154,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "unary_expr"
+        },
+        {
+          "type": "SYMBOL",
           "name": "derivative_expr"
         },
         {
@@ -192,7 +196,7 @@
     },
     "derivative_expr": {
       "type": "PREC",
-      "value": 4,
+      "value": 5,
       "content": {
         "type": "SEQ",
         "members": [
@@ -203,6 +207,27 @@
           {
             "type": "STRING",
             "value": "'"
+          }
+        ]
+      }
+    },
+    "unary_expr": {
+      "type": "PREC",
+      "value": 4,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "op",
+            "content": {
+              "type": "SYMBOL",
+              "name": "unary_operator"
+            }
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expr"
           }
         ]
       }
@@ -378,6 +403,14 @@
         },
         {
           "type": "STRING",
+          "value": "&&"
+        },
+        {
+          "type": "STRING",
+          "value": "||"
+        },
+        {
+          "type": "STRING",
           "value": "<"
         },
         {
@@ -418,11 +451,32 @@
         },
         {
           "type": "STRING",
+          "value": "and"
+        },
+        {
+          "type": "STRING",
           "value": "OR"
         },
         {
           "type": "STRING",
+          "value": "or"
+        }
+      ]
+    },
+    "unary_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "!"
+        },
+        {
+          "type": "STRING",
           "value": "NOT"
+        },
+        {
+          "type": "STRING",
+          "value": "not"
         }
       ]
     },

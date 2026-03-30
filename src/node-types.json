@@ -56,6 +56,10 @@
           {
             "type": "tuple",
             "named": true
+          },
+          {
+            "type": "unary_expr",
+            "named": true
           }
         ]
       }
@@ -119,6 +123,10 @@
         {
           "type": "tuple",
           "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
         }
       ]
     }
@@ -181,6 +189,10 @@
         {
           "type": "tuple",
           "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
         }
       ]
     }
@@ -231,6 +243,10 @@
         },
         {
           "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
           "named": true
         }
       ]
@@ -283,6 +299,10 @@
         {
           "type": "tuple",
           "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
         }
       ]
     }
@@ -333,6 +353,10 @@
         },
         {
           "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
           "named": true
         }
       ]
@@ -472,9 +496,88 @@
         {
           "type": "tuple",
           "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "unary_expr",
+    "named": true,
+    "fields": {
+      "op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "unary_operator",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "derivative_expr",
+          "named": true
+        },
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "magnitude_expr",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "!",
+    "named": false
   },
   {
     "type": "!=",
@@ -482,6 +585,10 @@
   },
   {
     "type": "%",
+    "named": false
+  },
+  {
+    "type": "&&",
     "named": false
   },
   {
@@ -577,6 +684,10 @@
     "named": false
   },
   {
+    "type": "and",
+    "named": false
+  },
+  {
     "type": "boolean",
     "named": true
   },
@@ -593,8 +704,16 @@
     "named": true
   },
   {
+    "type": "not",
+    "named": false
+  },
+  {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "or",
+    "named": false
   },
   {
     "type": "section_identifier",
@@ -610,6 +729,10 @@
   },
   {
     "type": "|",
+    "named": false
+  },
+  {
+    "type": "||",
     "named": false
   }
 ]

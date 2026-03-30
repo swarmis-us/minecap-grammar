@@ -2,7 +2,8 @@
 // Minimal grammar for highlighting and basic structure.
 
 const PREC = {
-  derivative: 4,
+  derivative: 5,
+  unary: 4,
   magnitude: 3,
   call: 3,
   binary: 1,
@@ -44,6 +45,7 @@ module.exports = grammar({
     _expr: ($) =>
       choice(
         $.binary_expr,
+        $.unary_expr,
         $.derivative_expr,
         $.magnitude_expr,
         $.call,
@@ -56,6 +58,9 @@ module.exports = grammar({
       ),
 
     derivative_expr: ($) => prec(PREC.derivative, seq($._expr, "'")),
+
+    unary_expr: ($) =>
+      prec(PREC.unary, seq(field("op", $.unary_operator), $._expr)),
 
     magnitude_expr: ($) => prec(PREC.magnitude, seq("|", $._expr, "|")),
 
@@ -81,6 +86,8 @@ module.exports = grammar({
         "!=",
         "<=",
         ">=",
+        "&&",
+        "||",
         "<",
         ">",
         "+",
@@ -91,9 +98,12 @@ module.exports = grammar({
         "^",
         "->",
         "AND",
+        "and",
         "OR",
-        "NOT",
+        "or",
       ),
+
+    unary_operator: ($) => choice("!", "NOT", "not"),
 
     identifier: ($) => /[A-Za-z_][A-Za-z0-9_\.\-]*/,
 
