@@ -21,9 +21,20 @@ module.exports = grammar({
     _section_or_stmt: ($) =>
       choice($.section_header, $.assignment, $.expression_line, $.comment),
 
-    section_header: ($) => seq("[", $.section_name, "]"),
+    section_header: ($) =>
+      seq(
+        "[",
+        field("kind", $.section_segment),
+        repeat(seq(".", field("modifier", $.section_segment))),
+        optional(seq(":", field("target", $.section_target))),
+        "]",
+      ),
 
-    section_name: ($) => /[A-Za-z0-9_.-]+/,
+    section_segment: ($) => choice($.section_identifier, $.duration),
+
+    section_identifier: ($) => /[A-Za-z_][A-Za-z0-9_-]*/,
+
+    section_target: ($) => /[A-Za-z_][A-Za-z0-9_.-]*/,
 
     assignment: ($) =>
       seq(field("name", $.identifier), "=", field("value", $._expr)),

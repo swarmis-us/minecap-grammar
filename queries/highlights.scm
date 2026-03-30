@@ -1,6 +1,11 @@
 ; Sections
-(section_header) @keyword
-(section_name) @type
+(section_header "[" @punctuation.bracket)
+(section_header "]" @punctuation.bracket)
+(section_header kind: (section_identifier) @keyword)
+(section_header modifier: (section_identifier) @type)
+(section_header modifier: (duration) @number)
+(section_header ":" @punctuation.delimiter)
+(section_header target: (section_target) @namespace)
 
 ; Assignment
 (assignment name: (identifier) @variable)
